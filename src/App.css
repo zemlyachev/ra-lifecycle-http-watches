@@ -1,38 +1,62 @@
-.App {
-  text-align: center;
+* {
+  --clock-size: 150px;
+  --clock-half-size: calc(var(--clock-size) / 2);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.clock {
+  height: var(--clock-size);
+  width: var(--clock-size);
+  border-radius: 50%;
+  border: solid 2px darkgray;
+  position: absolute;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+#second-hand {
+  --second-hand-width: 2px;
+  --second-hand-half-width: calc(var(--second-hand-width) / 2);
+  position: inherit;
+  height: calc(var(--clock-half-size) - 5%);
+  width: var(--second-hand-width);
+  background-color: blue;
+  left: calc(var(--clock-half-size) - var(--second-hand-half-width));
+  bottom: var(--clock-half-size);
+  opacity: 50%;
+  transform-origin: var(--second-hand-half-width) 100%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+#minute-hand {
+  --minute-hand-width: 4px;
+  --minute-hand-half-width: calc(var(--minute-hand-width) / 2);
+  position: inherit;
+  height: calc(var(--clock-half-size) - 15%);
+  width: var(--minute-hand-width);
+  background-color: blueviolet;
+  left: calc(var(--clock-half-size) - var(--minute-hand-half-width));
+  bottom: var(--clock-half-size);
+  opacity: 50%;
+  transform-origin: var(--minute-hand-half-width) 100%;
 }
 
-.App-link {
-  color: #61dafb;
+#hour-hand {
+  --hour-hand-width: 6px;
+  --hour-hand-half-width: calc(var(--hour-hand-width) / 2);
+  position: inherit;
+  height: calc(var(--clock-half-size) - 25%);
+  width: var(--hour-hand-width);
+  background-color: cadetblue;
+  left: calc(var(--clock-half-size) - var(--hour-hand-half-width));
+  bottom: var(--clock-half-size);
+  opacity: 50%;
+  transform-origin: var(--hour-hand-half-width) 100%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#center {
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  /* opacity: 50%; */
+  position: inherit;
+  background-color: darkgray;
+  left: calc(var(--clock-half-size) - 5px);
+  bottom: calc(var(--clock-half-size) - 5px);
 }
